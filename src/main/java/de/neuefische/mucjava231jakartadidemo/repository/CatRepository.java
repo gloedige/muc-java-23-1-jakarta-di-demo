@@ -1,11 +1,11 @@
 package de.neuefische.mucjava231jakartadidemo.repository;
 
+import de.neuefische.mucjava231jakartadidemo.exception.CatNotFoundException;
 import de.neuefische.mucjava231jakartadidemo.model.Cat;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @ApplicationScoped
 public class CatRepository {
@@ -26,7 +26,7 @@ public class CatRepository {
                 return cat;
             }
         }
-        throw new NoSuchElementException("Cat with id " + id + " does not exist!");
+        throw new CatNotFoundException(id);
     }
 
     public Cat addCat(Cat cat){

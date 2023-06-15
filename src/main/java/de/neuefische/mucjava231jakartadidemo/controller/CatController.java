@@ -3,6 +3,7 @@ package de.neuefische.mucjava231jakartadidemo.controller;
 import de.neuefische.mucjava231jakartadidemo.model.Cat;
 import de.neuefische.mucjava231jakartadidemo.service.CatService;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
@@ -35,7 +36,7 @@ public class CatController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Cat addCat(Cat cat){
+    public Cat addCat(@Valid Cat cat){
         return catService.addCat(cat);
     }
 }
